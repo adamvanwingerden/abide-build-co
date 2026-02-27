@@ -110,8 +110,25 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(28, 28, 28, 0.92) 0%, rgba(28, 28, 28, 0.7) 50%, rgba(28, 28, 28, 0.85) 100%),
-    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80') center/cover no-repeat;
+    linear-gradient(135deg, rgba(28, 28, 28, 0.88) 0%, rgba(28, 28, 28, 0.65) 50%, rgba(28, 28, 28, 0.82) 100%),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80') center/cover no-repeat;
+}
+
+.hero-logo {
+  margin-bottom: 1.5rem;
+}
+
+.hero-logo-svg {
+  width: 280px;
+  height: auto;
+  max-width: 90vw;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--copper);
+  margin: 0 auto 2rem;
 }
 
 .hero-content {

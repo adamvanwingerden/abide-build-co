@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" fill="none">
+  <!-- Geometric house icon - two overlapping angular window/house shapes -->
+  <g transform="translate(130, 0)">
+    <!-- Left house/window shape -->
+    <path d="M10 120 L10 50 Q10 45 14 42 L58 10 Q65 5 72 10 L72 60" stroke="#1C1C1C" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="72" y1="10" x2="72" y2="120" stroke="#1C1C1C" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Right house/window shape -->
+    <path d="M68 120 L68 50 Q68 45 72 42 L116 10 Q123 5 130 10 L130 120" stroke="#1C1C1C" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <line x1="68" y1="10" x2="68" y2="120" stroke="#1C1C1C" stroke-width="14" stroke-linecap="round"/>
+  </g>
+
+  <!-- "Abide" in script/cursive style -->
+  <text x="200" y="210" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-weight="600" font-size="80" fill="#C4884D" letter-spacing="2">Abide</text>
+
+  <!-- "BUILD CO" in clean uppercase -->
+  <text x="200" y="270" text-anchor="middle" font-family="'Inter', Arial, sans-serif" font-weight="600" font-size="36" fill="#1C1C1C" letter-spacing="14">BUILD CO</text>
+</svg>

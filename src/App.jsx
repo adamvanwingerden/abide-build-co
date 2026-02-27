@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import {
   Home, Building2, Mountain, Coffee, Hammer, Compass,
   Shield, Heart, ChevronDown, Phone, Mail, MapPin,
-  ArrowRight, Menu, X, CheckCircle2, Instagram, Facebook
+  ArrowRight, Menu, X, CheckCircle2, Instagram, Facebook, User
 } from 'lucide-react'
 import './App.css'
 
@@ -26,14 +26,32 @@ function useScrollReveal() {
   return ref
 }
 
-function Logo({ color = '#1C1C1C', size = 40 }) {
+function LogoIcon({ color = '#1C1C1C', size = 40 }) {
+  const scale = size / 40
   return (
-    <svg width={size} height={size * 1.1} viewBox="0 0 100 110" fill="none">
-      <path d="M20 70 L20 40 L50 20 L80 40 L80 70" stroke={color} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-      <line x1="50" y1="20" x2="50" y2="70" stroke={color} strokeWidth="6" strokeLinecap="round"/>
-      <path d="M35 70 L35 48" stroke={color} strokeWidth="5" strokeLinecap="round"/>
-      <path d="M65 70 L65 48" stroke={color} strokeWidth="5" strokeLinecap="round"/>
+    <svg width={size} height={size * 1.1} viewBox="0 0 140 130" fill="none">
+      <g transform="translate(0, 5)">
+        <path d="M10 120 L10 50 Q10 45 14 42 L58 10 Q65 5 72 10 L72 60" stroke={color} strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <line x1="72" y1="10" x2="72" y2="120" stroke={color} strokeWidth="12" strokeLinecap="round"/>
+        <path d="M68 120 L68 50 Q68 45 72 42 L116 10 Q123 5 130 10 L130 120" stroke={color} strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      </g>
     </svg>
+  )
+}
+
+function HeroLogo() {
+  return (
+    <div className="hero-logo">
+      <svg viewBox="0 0 400 300" fill="none" className="hero-logo-svg">
+        <g transform="translate(130, 0)">
+          <path d="M10 120 L10 50 Q10 45 14 42 L58 10 Q65 5 72 10 L72 60" stroke="#FFFFFF" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+          <line x1="72" y1="10" x2="72" y2="120" stroke="#FFFFFF" strokeWidth="12" strokeLinecap="round"/>
+          <path d="M68 120 L68 50 Q68 45 72 42 L116 10 Q123 5 130 10 L130 120" stroke="#FFFFFF" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </g>
+        <text x="200" y="195" textAnchor="middle" fontFamily="'Cormorant Garamond', Georgia, serif" fontStyle="italic" fontWeight="600" fontSize="72" fill="#C4884D" letterSpacing="2">Abide</text>
+        <text x="200" y="248" textAnchor="middle" fontFamily="'Inter', Arial, sans-serif" fontWeight="600" fontSize="32" fill="rgba(255,255,255,0.9)" letterSpacing="14">BUILD CO</text>
+      </svg>
+    </div>
   )
 }
 
@@ -69,7 +87,7 @@ export default function App() {
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
           <a href="#" className="nav-logo" onClick={() => scrollTo('hero')}>
-            <Logo color={scrolled ? '#1C1C1C' : '#FFFFFF'} size={36} />
+            <LogoIcon color={scrolled ? '#1C1C1C' : '#FFFFFF'} size={36} />
             <div className="nav-logo-text" style={{ color: scrolled ? '#1C1C1C' : '#FFFFFF' }}>
               Abide
               <span style={{ color: scrolled ? '#8A8A8A' : 'rgba(255,255,255,0.5)' }}>Build Co</span>
@@ -102,16 +120,10 @@ export default function App() {
       <section id="hero" className="hero">
         <div className="hero-bg" />
         <div className="hero-content">
-          <div className="hero-badge">
-            <Shield size={14} />
-            Now Building Across Virginia
-          </div>
-          <h1>
-            We Build Homes<br />
-            That <span className="accent">Abide</span>
-          </h1>
+          <HeroLogo />
+          <div className="hero-divider" />
           <p className="hero-sub">
-            Spec homes, custom builds, mountain retreats, and commercial spaces — crafted with integrity, built to last generations.
+            Spec homes, custom builds, mountain retreats, and commercial spaces — crafted with integrity in the heart of Idaho.
           </p>
           <div className="hero-buttons">
             <button className="btn-primary" onClick={() => scrollTo('contact')}>
@@ -151,7 +163,7 @@ export default function App() {
           <span className="section-label">What We Build</span>
           <h2 className="section-title">Crafted for Every Vision</h2>
           <p className="section-subtitle">
-            From spec homes to mountain retreats, we bring the same standard of excellence to every project.
+            From spec homes in the Treasure Valley to mountain retreats near McCall and Sun Valley, we bring the same standard of excellence to every project.
           </p>
         </div>
         <div className="services-grid">
@@ -159,7 +171,7 @@ export default function App() {
             {
               icon: <Home size={24} />,
               title: 'Spec Homes',
-              desc: 'Thoughtfully designed move-in ready homes built with premium materials and modern floor plans that today\'s buyers are looking for.'
+              desc: 'Thoughtfully designed move-in ready homes built with premium materials and modern floor plans tailored for Idaho living.'
             },
             {
               icon: <Compass size={24} />,
@@ -169,7 +181,7 @@ export default function App() {
             {
               icon: <Mountain size={24} />,
               title: 'Mountain Retreats',
-              desc: 'Stunning Airbnb-ready properties nestled in the mountains — designed for unforgettable getaways and strong rental returns.'
+              desc: 'Stunning Airbnb-ready properties in Idaho\'s mountains — designed for unforgettable getaways and strong rental returns.'
             },
             {
               icon: <Coffee size={24} />,
@@ -192,17 +204,17 @@ export default function App() {
           <span className="section-label">Our Portfolio</span>
           <h2 className="section-title">Built With Purpose</h2>
           <p className="section-subtitle">
-            Every project tells a story. Here's a glimpse of what we're building.
+            Every project tells a story. Here's a glimpse of what we're building across Idaho.
           </p>
         </div>
         <div className="projects-grid">
           {[
-            { img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80', type: 'Spec Home', name: 'The Ridgeline', tall: true },
-            { img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80', type: 'Custom Build', name: 'Oakwood Estate' },
-            { img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80', type: 'Spec Home', name: 'Cedar Creek' },
-            { img: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80', type: 'Mountain Retreat', name: 'Summit Lodge' },
-            { img: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80', type: 'Mountain Airbnb', name: 'Blue Ridge Cabin', tall: true },
-            { img: 'https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80', type: 'Commercial', name: 'Roasted & Co Café' },
+            { img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80', type: 'Spec Home', name: 'The Eagle Ridge', tall: true },
+            { img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80', type: 'Custom Build', name: 'Boise Foothills Estate' },
+            { img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80', type: 'Spec Home', name: 'Meridian Modern' },
+            { img: 'https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=800&q=80', type: 'Mountain Retreat', name: 'McCall Summit Lodge' },
+            { img: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80', type: 'Mountain Airbnb', name: 'Sawtooth Cabin', tall: true },
+            { img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80', type: 'Commercial', name: 'Boise Coffee House' },
           ].map((project, i) => (
             <div key={i} className={`project-card fade-up ${project.tall ? 'tall' : ''}`} style={{ transitionDelay: `${i * 0.1}s` }}>
               <img className="project-img" src={project.img} alt={project.name} loading="lazy" />
@@ -229,16 +241,16 @@ export default function App() {
             <span className="section-label">Our Story</span>
             <h2>Built on a Foundation<br />of <span className="accent">Integrity</span></h2>
             <p>
-              Abide Build Co was born from a simple conviction: that the homes and spaces we create should reflect the values we live by. Every nail driven, every beam raised, every detail finished — it's all done with a commitment to excellence that goes beyond the blueprint.
+              Abide Build Co was born from a simple conviction: that the homes and spaces we create should reflect the values we live by. Rooted in Idaho's Treasure Valley, every nail driven, every beam raised, every detail finished — it's all done with a commitment to excellence that goes beyond the blueprint.
             </p>
             <p>
-              We're not just building structures. We're building trust, community, and spaces where life happens — from the family gathering in a custom home to the traveler finding rest in a mountain retreat.
+              We're not just building structures. We're building trust, community, and spaces where life happens — from the family gathering in a custom home in Eagle to the traveler finding rest in a mountain cabin near McCall.
             </p>
             <div className="story-values">
               {[
                 { icon: <Shield size={18} />, title: 'Integrity First', desc: 'We do what we say' },
                 { icon: <Hammer size={18} />, title: 'Quality Craft', desc: 'Excellence in every detail' },
-                { icon: <Heart size={18} />, title: 'Community Driven', desc: 'Building neighborhoods' },
+                { icon: <Heart size={18} />, title: 'Community Driven', desc: 'Building Idaho neighborhoods' },
                 { icon: <Building2 size={18} />, title: 'Built to Last', desc: 'Generational quality' },
               ].map((v, i) => (
                 <div key={i} className="value-item">
@@ -286,7 +298,7 @@ export default function App() {
             The quality and attention to detail Abide Build Co brings to every project is unmatched. They don't just build houses — they build homes you're proud to live in.
           </div>
           <div className="testimonial-author">Future Homeowners</div>
-          <div className="testimonial-role">Virginia</div>
+          <div className="testimonial-role">Boise, Idaho</div>
         </div>
       </section>
 
@@ -294,7 +306,7 @@ export default function App() {
       <section className="cta-section">
         <div className="cta-content fade-up">
           <h2>Ready to Build<br />Something <span className="accent">Extraordinary</span>?</h2>
-          <p>Whether it's a spec home, custom build, mountain retreat, or commercial space — let's bring your vision to life.</p>
+          <p>Whether it's a spec home, custom build, mountain retreat, or commercial space — let's bring your vision to life in Idaho.</p>
           <button className="btn-primary" onClick={() => scrollTo('contact')}>
             Let's Talk <ArrowRight size={16} />
           </button>
@@ -310,10 +322,17 @@ export default function App() {
             <p>Have a project in mind? We'd love to hear about it. Reach out and let's start the conversation.</p>
             <div className="contact-details">
               <div className="contact-detail">
+                <div className="contact-detail-icon"><User size={18} /></div>
+                <div>
+                  <h4>Leadership</h4>
+                  <p>Austin Tolpin, CEO</p>
+                </div>
+              </div>
+              <div className="contact-detail">
                 <div className="contact-detail-icon"><MapPin size={18} /></div>
                 <div>
                   <h4>Location</h4>
-                  <p>Virginia</p>
+                  <p>Boise, Idaho</p>
                 </div>
               </div>
               <div className="contact-detail">
@@ -416,9 +435,9 @@ export default function App() {
       <footer className="footer">
         <div className="footer-inner">
           <div className="footer-brand">
-            <Logo color="#FFFFFF" size={36} />
+            <LogoIcon color="#FFFFFF" size={36} />
             <p>
-              Building homes and spaces with integrity, craftsmanship, and purpose. Based in Virginia.
+              Building homes and spaces with integrity, craftsmanship, and purpose. Based in Boise, Idaho.
             </p>
           </div>
           <div className="footer-col">
